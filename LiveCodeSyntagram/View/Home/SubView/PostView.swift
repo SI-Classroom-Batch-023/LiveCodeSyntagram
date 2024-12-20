@@ -20,6 +20,7 @@ struct PostView: View {
                     .resizable()
                     .scaledToFill()
                     .clipShape(.circle)
+//                    .profilePicture() // Bonus eigener Modifier - anwendbar statt resizable, scale und clipShape
                     .frame(width: 50, height: 50)
 
                 Text(post.user.name)

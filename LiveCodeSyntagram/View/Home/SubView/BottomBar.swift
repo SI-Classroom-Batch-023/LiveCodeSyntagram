@@ -51,6 +51,7 @@ struct BottomBar: View {
         }
         .tint(.black)
         .font(.title)
+//        .barButtonStyle() // Bonus eigener Modifier - anwendbar statt tint und font
         .padding()
         .padding(.horizontal, 8)
     }

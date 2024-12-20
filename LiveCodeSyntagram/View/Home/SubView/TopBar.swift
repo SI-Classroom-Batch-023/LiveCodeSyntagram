@@ -40,6 +40,7 @@ struct TopBar: View {
         }
         .tint(.black)
         .font(.title)
+//        .barButtonStyle() // Bonus eigener Modifier - anwendbar statt tint und font
         .padding(.horizontal)
     }
 }

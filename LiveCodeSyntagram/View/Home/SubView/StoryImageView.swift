@@ -17,6 +17,7 @@ struct StoryImageView: View {
                 .resizable()
                 .scaledToFill()
                 .clipShape(.circle)
+//                .profilePicture() // Bonus eigener Modifier - anwendbar statt resizable, scale und clipShape
                 .frame(width: 60, height: 60)
                 .padding(6)
                 .overlay {
