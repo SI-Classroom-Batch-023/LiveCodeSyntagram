@@ -9,11 +9,11 @@ import SwiftUI
 
 struct StoryImageView: View {
 
-    let user: User
+    @Binding var story: Story
 
     var body: some View {
         VStack {
-            Image(user.image)
+            Image(story.user.image)
                 .resizable()
                 .scaledToFill()
                 .clipShape(.circle)
@@ -21,11 +21,18 @@ struct StoryImageView: View {
                 .frame(width: 60, height: 60)
                 .padding(6)
                 .overlay {
-                    Circle()
-                        .strokeBorder(.linearGradient(colors: [.yellow, .orange, .pink], startPoint: .bottomLeading, endPoint: .topTrailing), lineWidth: 3)
+                    if !story.isShown {
+                        Circle()
+                            .strokeBorder(.linearGradient(colors: [.yellow, .orange, .pink], startPoint: .bottomLeading, endPoint: .topTrailing), lineWidth: 3)
+                    }
+                }
+                .onTapGesture {
+                    withAnimation {
+                        story.isShown = true
+                    }
                 }
 
-            Text(user.name)
+            Text(story.user.name)
                 .font(.title3)
 
         }
@@ -33,5 +40,5 @@ struct StoryImageView: View {
 }
 
 #Preview {
-    StoryImageView(user: User.user1)
+    StoryImageView(story: .constant(Story(user: User.user1)))
 }

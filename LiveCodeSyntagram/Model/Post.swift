@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct Post {
+struct Post: Identifiable {
+    let id = UUID()
     let image: String
     let user: User
+    var isLiked: Bool = false
+    var isBookmarked: Bool = false
+
 }

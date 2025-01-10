@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PostView: View {
 
-    let post: Post
+    @Binding var post: Post
 
     var body: some View {
         VStack {
@@ -47,9 +47,12 @@ struct PostView: View {
             // Footer
             HStack(spacing: 12) {
                 Button {
-
+                    withAnimation {
+                        post.isLiked.toggle()
+                    }
                 } label: {
-                    Image(systemName: "heart")
+                    Image(systemName: post.isLiked ? "heart.fill" : "heart")
+                        .tint(post.isLiked ? .red : .black)
                 }
 
                 Button {
@@ -67,9 +70,10 @@ struct PostView: View {
                 Spacer()
 
                 Button {
-
+                    post.isBookmarked.toggle()
+//                    post.isBookmarked = !post.isBookmarked
                 } label: {
-                    Image(systemName: "bookmark")
+                    Image(systemName: post.isBookmarked ? "bookmark.fill" : "bookmark")
                 }
             }
             .padding(.horizontal)
@@ -94,5 +98,5 @@ struct PostView: View {
 }
 
 #Preview {
-    PostView(post: Post.post1)
+    PostView(post: .constant(Post.post1))
 }

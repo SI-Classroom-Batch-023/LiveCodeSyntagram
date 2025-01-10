@@ -8,14 +8,24 @@
 import SwiftUI
 
 struct StoryListView: View {
+
+    @State private var storyList = [
+        Story(user: User.user1),
+        Story(user: User.user2),
+        Story(user: User.user3),
+        Story(user: User.user4),
+        Story(user: User.user5)
+    ]
+
     var body: some View {
         ScrollView(.horizontal) {
             HStack {
-                StoryImageView(user: User.user1)
-                StoryImageView(user: User.user2)
-                StoryImageView(user: User.user3)
-                StoryImageView(user: User.user4)
-                StoryImageView(user: User.user5)
+                ForEach($storyList.sorted(by: { $story1, $story2 in
+                    return !story1.isShown
+                })) { $story in
+                    StoryImageView(story: $story)
+//                    SubView(story: story)
+                }
             }
             .padding(.horizontal)
         }
