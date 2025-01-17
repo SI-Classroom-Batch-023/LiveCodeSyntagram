@@ -22,3 +22,11 @@ extension Post {
     static let post2 = Post(image: "post2", user: User.user1)
     static let post3 = Post(image: "post3", user: User.user4)
 }
+
+extension Story {
+    static let story1 = Story(user: User.user1, images: ["story1", "story2", "story3"])
+    static let story2 = Story(user: User.user2, images: ["story2"])
+    static let story3 = Story(user: User.user3, images: ["story3"])
+    static let story4 = Story(user: User.user4, images: ["story1"])
+    static let story5 = Story(user: User.user5, images: ["story3", "story1"])
+}

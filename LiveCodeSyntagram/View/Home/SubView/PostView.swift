@@ -16,16 +16,18 @@ struct PostView: View {
 
             // Header
             HStack {
-                Image(post.user.image)
-                    .resizable()
-                    .scaledToFill()
-                    .clipShape(.circle)
-//                    .profilePicture() // Bonus eigener Modifier - anwendbar statt resizable, scale und clipShape
-                    .frame(width: 50, height: 50)
-
-                Text(post.user.name)
-                    .fontWeight(.semibold)
-                    .font(.title3)
+                NavigationLink(value: post.user) {
+                    Image(post.user.image)
+                        .resizable()
+                        .scaledToFill()
+                        .clipShape(.circle)
+                    //                    .profilePicture() // Bonus eigener Modifier - anwendbar statt resizable, scale und clipShape
+                        .frame(width: 50, height: 50)
+                    
+                    Text(post.user.name)
+                        .fontWeight(.semibold)
+                        .font(.title3)
+                }
 
                 Spacer()
 

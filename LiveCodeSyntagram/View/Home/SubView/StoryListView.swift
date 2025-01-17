@@ -10,11 +10,11 @@ import SwiftUI
 struct StoryListView: View {
 
     @State private var storyList = [
-        Story(user: User.user1),
-        Story(user: User.user2),
-        Story(user: User.user3),
-        Story(user: User.user4),
-        Story(user: User.user5)
+        Story.story1,
+        Story.story2,
+        Story.story3,
+        Story.story4,
+        Story.story5
     ]
 
     var body: some View {
